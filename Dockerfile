@@ -1,10 +1,9 @@
-FROM node
+FROM alpine
+RUN apk add --no-cache git && \
+ apk add --update npm && \
+ git clone https://github.com/david322solo/init.git
 
-VOLUME /home/server
-
-WORKDIR /home/server
-
-COPY . /home/server/
+WORKDIR ./init
 
 EXPOSE 3000
 
